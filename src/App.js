@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
+import CalorieForm from './components/CalorieForm';
+import CalorieList from './components/CalorieList';
 
 function App() {
+  const [calories, setCalories] = useState([]);
+  const [totalCalories, setTotalCalories] = useState(0);
+
+  useEffect(()=> {
+    let temp = 0;
+    for(let i = 0; i < calories.length; i++) {
+      temp += parseInt(calories[i].calorieNo);
+    }
+
+    setTotalCalories(temp);
+  }, [calories]);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header totalCalories={totalCalories}/>
+      <CalorieForm calories={calories} setCalories={setCalories}/>
+      <CalorieList calories={calories} setCalories={setCalories}/>
     </div>
   );
 }
