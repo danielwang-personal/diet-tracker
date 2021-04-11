@@ -1,10 +1,6 @@
 import React from 'react';
 
 export default function FoodItem({ calories, index, removeCalories }) {
-    let date = new Date(calories.date);
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
 
     const removeHandle = i => {
         removeCalories(i);
@@ -14,7 +10,6 @@ export default function FoodItem({ calories, index, removeCalories }) {
             <button className="remove-item" onClick={() => removeHandle(index)}>x</button>
             <div className="desc">{calories.desc}</div>
             <div className="servingSize">{calories.servingSize}</div>
-            <div className="date">{day + "/" + month + "/" + year}</div>
             <div className="mealType">{calories.mealType}</div>
         </div>
     )

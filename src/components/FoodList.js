@@ -8,14 +8,11 @@ export default function FoodList({ calories, setCalories }) {
         setCalories(temp);
     }
 
-    const sortByDate = (a, b) => {
-        return a.date - b.date;
-    }
 
     return (
         <div className="calories-list">
             {
-                calories.sort(sortByDate).map((value, index) => (
+                calories.map((value, index) => (
                     <FoodItem 
                         key={index} 
                         calories={value}
