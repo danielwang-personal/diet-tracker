@@ -9,7 +9,7 @@ export default function FoodItem({ calories, index, removeCalories }) {
         <div className="calories-item">
             <button className="remove-item" onClick={() => removeHandle(index)}>x</button>
             <div className="desc">{calories.desc}</div>
-            <div className="servingSize">{calories.servingSize}</div>
+            <div className="servingSize">{calories.servingSize} grams</div>
             <div className="mealType">{calories.mealType}</div>
         </div>
     )

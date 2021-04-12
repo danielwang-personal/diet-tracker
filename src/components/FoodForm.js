@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react' 
+import React, {useRef} from 'react' 
 
 export default function FoodForm({calories, setCalories}) {
     const desc = useRef(null);
@@ -25,7 +25,7 @@ export default function FoodForm({calories, setCalories}) {
         <form className="calories-form" onSubmit={AddFood}>
             <div className="form-inner">
                 <input type="text" name="desc" id="desc" placeholder="Enter food" ref={desc}/>
-                <input type="number" name="servingSize" placeholder="Enter serving size" ref={servingSize}/>
+                <input type="number" name="servingSize" placeholder="Enter serving size (grams)" ref={servingSize}/>
                 <select className="mealType" ref={mealType}>
                     <option value="Breakfast">Breakfast</option>
                     <option value="Lunch">Lunch</option>
